@@ -30,4 +30,4 @@ if __name__ == '__main__':
         log.error('Encountered an error, exiting.')
 ```
 ### Output
-![tinylogs output](https://paste.xinu.at/MGnTo/)
+![tinylogs output](https://paste.xinu.at/BHk0/)

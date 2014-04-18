@@ -18,27 +18,27 @@ class TinyLogs:
         self.c_delimiter = '\033[1;1m'
         self.DEBUG = debug
 
-    def timestamp(self):
+    def _timestamp(self):
         return strftime('%H:%M:%S')
 
     def info(self,msg): 
         print('{D}[{E}{C}INFO{E}{D}]{E} {D}[{E}{C}{T}{E}{D}]{E} {S}'.format(
-                E=self.c_escape,D=self.c_delimiter,C=self.c_info,T=self.timestamp(),S=str(msg)))
+                E=self.c_escape,D=self.c_delimiter,C=self.c_info,T=self._timestamp(),S=str(msg)))
 
     def success(self,msg): 
         print('{D}[{E}{C}SUCCESS{E}{D}]{E} {D}[{E}{C}{T}{E}{D}]{E} {S}'.format(
-                E=self.c_escape,D=self.c_delimiter,C=self.c_success,T=self.timestamp(),S=str(msg)))
+                E=self.c_escape,D=self.c_delimiter,C=self.c_success,T=self._timestamp(),S=str(msg)))
 
     def warning(self,msg):
         print('{D}[{E}{C}WARNING{E}{D}]{E} {D}[{E}{C}{T}{E}{D}]{E} {S}'.format(
-                E=self.c_escape,D=self.c_delimiter,C=self.c_warning,T=self.timestamp(),S=str(msg)))
+                E=self.c_escape,D=self.c_delimiter,C=self.c_warning,T=self._timestamp(),S=str(msg)))
 
     def error(self,msg):
         print('{D}[{E}{C}ERROR{E}{D}]{E} {D}[{E}{C}{T}{E}{D}]{E} {S}'.format(
-                E=self.c_escape,D=self.c_delimiter,C=self.c_error,T=self.timestamp(),S=str(msg)))
+                E=self.c_escape,D=self.c_delimiter,C=self.c_error,T=self._timestamp(),S=str(msg)))
         exit()
 
     def debug(self,msg):
         if self.DEBUG:
             print('{D}[{E}{C}DEBUG{E}{D}]{E} {D}[{E}{C}{T}{E}{D}]{E} {S}'.format(
-                E=self.c_escape,D=self.c_delimiter,C=self.c_debug,T=self.timestamp(),S=str(msg)))
+                E=self.c_escape,D=self.c_delimiter,C=self.c_debug,T=self._timestamp(),S=str(msg)))

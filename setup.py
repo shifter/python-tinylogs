@@ -8,5 +8,5 @@ setup(
     license='MIT',
     author='takeshix',
     author_email='takeshix@adversec.com',
-    description=''
+    description='A tiny logging module'
 )

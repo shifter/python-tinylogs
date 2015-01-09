@@ -2,18 +2,20 @@ python-tinylogs
 ===============
 
 A minimalistic class I mostly use in Python scripts to log output in a shell. It is compatible with Python 2.7 and 3.x. It can easily be customized to fit ones needs. 
-### Installation
-Either put the class file in the directory of your script, in the python site-packages directory or just include the class itself in your script.
+## Installation
+There are multiple ways to use/install this modules:
+* Just copy `tinylogs.py` into your project folder.
+* Run `python setup.py install` to install `tinylogs` into your global `site-packages` directory.
 
-### Usage
+## Examples
+### Basic Usage
 ```python
 from tinylogs import TinyLogs
-DEBUG = True
+
 
 if __name__ == '__main__':
-    # Create a global log instance (with debug output)
-    global log
-    log = TinyLogs(debug=DEBUG)
+    # Create a log instance (with debug output)
+    log = TinyLogs(debug=True)
 
     # Log some info
     log.info('Starting code flow')
@@ -23,11 +25,36 @@ if __name__ == '__main__':
 
     if True:
         # Log a warning
-        log.warning('Not good, but everything is still OK.')
+        log.warn('Not good, but everything is still OK.')
 
     if True:
         # Log an error. Error logs and exits.
         log.error('Encountered an error, exiting.')
 ```
-### Output
+##### Output
 ![tinylogs output](https://paste.xinu.at/BHk0/)
+
+### Log To File
+```python
+from tinylogs import TinyLogs
+
+
+if __name__ == '__main__':
+    # Create a log instance that logs into a logfile. multi indicates that
+    # logs should be written into a file and additionally printed stdout.
+    log = TinyLogs(file='/tmp/logfile', multi=True)
+
+    # Log some info
+    log.info('Starting code flow')
+
+    # Log some debug information
+    log.debug('A fancy debug message')
+
+    if True:
+        # Log a warning
+        log.warn('Not good, but everything is still OK.')
+
+    if True:
+        # Log an error. Error logs and exits.
+        log.error('Encountered an error, exiting.')
+```
